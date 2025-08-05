@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs') %>
+
+<h2 class="profile-heading">Welcome, <%= user.firstName + " " + user.lastName %></h2>
+
+<% if (events.length) { %>
+  <p>You have created the following events</p>
+  <% events.forEach(event => { %>
+    <a href="/events/<%= event.id %>"><p><%= event.title %></p></a>
+  <% }) %>
+<% } else { %>
+  <p>You have not created any events</p>
+<% } %>
+
+<%- include('../partials/footer.ejs') %>

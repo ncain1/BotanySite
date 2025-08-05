@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs')%>
+<div class = "content">
+    <h1>Create a New Event</h1>
+<form action="events" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title" required>
+
+    <label>Category:</label>
+    <input type="text" name="category" required>
+
+    <label>Details:</label>
+    <textarea name="details" required></textarea>
+
+    <label>Date:</label>
+    <input type="date" name="date" required>
+
+    <label>Time:</label>
+    <input type="time" name="time" required>
+
+    <label>Location:</label>
+    <input type="text" name="location" required>
+
+    <label>Image URL:</label>
+    <input type="text" name="image" required>
+
+    <button type="submit">Create Event</button>
+</form>
+
+    </div>
+    <%- include('../partials/footer.ejs')%>
