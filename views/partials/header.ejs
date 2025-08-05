@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles/default.css">
+    <title>Botanical Beat ❀</title>
+</head>
+<body>
+    <header class="top-bar">
+        <div class="logo">
+            <a href="/">
+                <img src="/images/PossibleBotanyLogoNoWords.png" alt="Botanical Beat Logo">
+            </a>
+        </div>
+        <div>
+            <h1 class="site-name">The Botanical Beat</h1>
+        </div>
+        <div class="auth-buttons">
+            <% if (!currentUser) { %>
+                <!-- Guest view -->
+                <a href="/users/login" class="btn">Login</a>
+                <a href="/users/new" class="btn">Signup</a>
+            <% } else { %>
+                <!-- Logged-in view -->
+                <a href="/users/profile" class="btn">Profile (<%= currentUser.firstName %>)</a>
+                <a href="/events/new" class="btn">New Event</a>
+                <a href="/users/logout" class="btn">Logout</a>
+            <% } %>
+        </div>
+    </header>
+  
+    <div class="accent-bar">
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="/">Home ❀</a>
+                <a href="/events">Events ❀</a>
+                <% if (currentUser) { %>
+                    <a href="/events/new">Create Event ❀</a>
+                <% } %>
+            </div>
+        </nav>
+    </div>
+
+    <% const _errors = (typeof errorMessages !== 'undefined' && Array.isArray(errorMessages)) ? errorMessages : []; %>
+    <% const _success = (typeof successMessages !== 'undefined' && Array.isArray(successMessages)) ? successMessages : []; %>
+
+    <% if (_errors.length > 0) { %>
+        <% _errors.forEach(message => { %>
+            <div class='err-message'><%= message %></div>
+        <% }) %>
+    <% } %>
+
+    <% if (_success.length > 0) { %>
+        <% _success.forEach(message => { %>
+            <div class='success-message'><%= message %></div>
+        <% }) %>
+    <% } %>

@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs')%>
+<div class = "content">
+    
+    <h1>Edit Event</h1>
+<form action="/events/<%= event._id %>?_method=PUT" method="POST">
+    <label>Title:</label>
+    <input type="text" name="title" value="<%= event.title %>" required>
+
+    <label>Category:</label>
+    <input type="text" name="category" value="<%= event.category %>" required>
+
+    <label>Details:</label>
+    <textarea name="details" required><%= event.details %></textarea>
+
+    <label>Start Date and Time:</label>
+    <input type="datetime-local" name="startDateTime" value="<%= event.startDateTime.toISOString().slice(0,16) %>" required>
+
+    <label>End Date and Time:</label>
+    <input type="datetime-local" name="endDateTime" value="<%= event.endDateTime.toISOString().slice(0,16) %>" required>
+
+    <label>Location:</label>
+    <input type="text" name="location" value="<%= event.location %>" required>
+
+    <label>Image URL:</label>
+    <input type="text" name="image" value="<%= event.image %>" required>
+
+    <button type="submit">Update Event</button>
+</form>
+
+    </div>
+    <%- include('../partials/footer.ejs')%>

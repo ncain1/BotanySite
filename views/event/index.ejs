@@ -1,0 +1,33 @@
+<%- include('../partials/header.ejs') %>
+
+<main>
+  <h1 class="pagetitle">Events</h1>
+
+  <% if (typeof categories !== 'undefined') { %>
+    <% for (let category in categories) { %>
+      <h2><%= category %></h2>
+      <% categories[category].forEach(event => { %>
+        <div>
+          <a href="/events/<%= event._id %>"><%= event.title %></a>
+        </div>
+      <% }) %>
+    <% } %>
+  <% } else { %>
+    <h2>Botany</h2>
+    <% botanyEvents.forEach(event => { %>
+      <div>
+        <a href="/events/<%= event._id %>"><%= event.title %></a>
+      </div>
+    <% }) %>
+
+    <h2>Gardening</h2>
+    <% gardeningEvents.forEach(event => { %>
+      <div>
+        <a href="/events/<%= event._id %>"><%= event.title %></a>
+      </div>
+    <% }) %>
+  <% } %>
+
+</main>
+
+<%- include('../partials/footer.ejs') %>

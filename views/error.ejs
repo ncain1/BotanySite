@@ -1,0 +1,24 @@
+<%- include('./partials/header.ejs') %>
+
+<main class="error-page">
+  <% if (errorMessages && errorMessages.length > 0) { %>
+    <% errorMessages.forEach(message => { %>
+      <div class="err-message"><%= message %></div>
+    <% }) %>
+  <% } %>
+
+  <% if (successMessages && successMessages.length > 0) { %>
+    <% successMessages.forEach(message => { %>
+      <div class="success-message"><%= message %></div>
+    <% }) %>
+  <% } %>
+
+  <h1><%= error.status %> Error</h1>
+  <p><%= error.message %></p>
+
+  <% if (error.stack) { %>
+    <pre><%= error.stack %></pre>
+  <% } %>
+</main>
+
+<%- include('./partials/footer.ejs') %>

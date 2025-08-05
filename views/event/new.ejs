@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs')%>
+<div class = "content">
+    <h1>Create a New Event</h1>
+<form action="/events" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title" required>
+
+  <label>Category:</label>
+  <select name="category" required>
+    <option value="Botany">Botany</option>
+    <option value="Gardening">Gardening</option>
+    <option value="Hydroponics">Hydroponics</option>
+    <option value="Permaculture">Permaculture</option>
+    <option value="Composting">Composting</option>
+  </select>
+
+  <label>Details:</label>
+  <textarea name="details" required></textarea>
+
+  <label>Start Date/Time:</label>
+  <input type="datetime-local" name="startDateTime" required>
+
+  <label>End Date/Time:</label>
+  <input type="datetime-local" name="endDateTime" required>
+
+  <label>Location:</label>
+  <input type="text" name="location" required>
+
+  <label>Image URL:</label>
+  <input type="text" name="image" required>
+
+  <button type="submit">Create Event</button>
+</form>
+
+    </div>
+    <%- include('../partials/footer.ejs')%>
